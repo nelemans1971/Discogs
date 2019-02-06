@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.271
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DiscogsXML2MySQL", "DiscogsXML2MySQL\DiscogsXML2MySQL.csproj", "{9EEFC341-BF59-41FC-89B7-11CD966FF724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{45F1BC99-1EC2-4AF1-BC0A-00092417F735}"
+	ProjectSection(SolutionItems) = preProject
+		Data\ARTISTS-SMALL.XML = Data\ARTISTS-SMALL.XML
+		Data\LABELS_SMALL.XML = Data\LABELS_SMALL.XML
+		Data\lister.exe = Data\lister.exe
+		Data\lister.txt = Data\lister.txt
+		Data\MASTERS_SMALL.XML = Data\MASTERS_SMALL.XML
+		Data\RELEASES_SMALL.XML = Data\RELEASES_SMALL.XML
+		Data\RELEASES_SMALL2.XML = Data\RELEASES_SMALL2.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{937FE848-EEE2-448F-BBC3-C537F9836D10}"
+	ProjectSection(SolutionItems) = preProject
+		DISCOGS.png = DISCOGS.png
+		LICENSE = LICENSE
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9EEFC341-BF59-41FC-89B7-11CD966FF724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EEFC341-BF59-41FC-89B7-11CD966FF724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EEFC341-BF59-41FC-89B7-11CD966FF724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EEFC341-BF59-41FC-89B7-11CD966FF724}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {053BFEF2-7B97-4E64-8951-DC94D537FE08}
+	EndGlobalSection
+EndGlobal

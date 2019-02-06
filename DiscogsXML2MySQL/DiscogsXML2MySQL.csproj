@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9EEFC341-BF59-41FC-89B7-11CD966FF724}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DiscogsXML2MySQL</RootNamespace>
+    <AssemblyName>DiscogsXML2MySQL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.13.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Resources\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DiscogsDataDownloader.cs" />
+    <Compile Include="Extensions\LinqExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Import.cs" />
+    <Compile Include="INIFileParser\Exceptions\ParsingException.cs" />
+    <Compile Include="INIFileParser\FileIniParser.cs" />
+    <Compile Include="INIFileParser\Helpers\Assert.cs" />
+    <Compile Include="INIFileParser\Model\Configuration\ConcatenateDuplicatedKeysIniParserConfiguration.cs" />
+    <Compile Include="INIFileParser\Model\Configuration\IniParserConfiguration.cs" />
+    <Compile Include="INIFileParser\Model\Formatting\DefaultIniDataFormatter.cs" />
+    <Compile Include="INIFileParser\Model\Formatting\IIniDataFormatter.cs" />
+    <Compile Include="INIFileParser\Model\IniData.cs" />
+    <Compile Include="INIFileParser\Model\IniDataCaseInsensitive.cs" />
+    <Compile Include="INIFileParser\Model\KeyData.cs" />
+    <Compile Include="INIFileParser\Model\KeyDataCollection.cs" />
+    <Compile Include="INIFileParser\Model\SectionData.cs" />
+    <Compile Include="INIFileParser\Model\SectionDataCollection.cs" />
+    <Compile Include="INIFileParser\Parser\ConcatenateDuplicatedKeysIniDataParser.cs" />
+    <Compile Include="INIFileParser\Parser\IniDataParser.cs" />
+    <Compile Include="INIFileParser\StreamIniDataParser.cs" />
+    <Compile Include="INIFileParser\StringIniParser.cs" />
+    <Compile Include="LogLib\CompositeLogger.cs" />
+    <Compile Include="LogLib\DebugLogger.cs" />
+    <Compile Include="LogLib\DelegatableLogger.cs" />
+    <Compile Include="LogLib\EmailLogger.cs" />
+    <Compile Include="LogLib\EventLogLogger.cs" />
+    <Compile Include="LogLib\FileLogger.cs" />
+    <Compile Include="LogLib\InsistentLogger.cs" />
+    <Compile Include="LogLib\LogEntry.cs" />
+    <Compile Include="LogLib\LogEntryCategoryFilter.cs" />
+    <Compile Include="LogLib\LogEntryCDRFormatter.cs" />
+    <Compile Include="LogLib\LogEntryFilter.cs" />
+    <Compile Include="LogLib\LogEntryFormatter.cs" />
+    <Compile Include="LogLib\LogEntryMessageOnlyFormatter.cs" />
+    <Compile Include="LogLib\LogEntryPassFilter.cs" />
+    <Compile Include="LogLib\LogEntryStandardFormatter.cs" />
+    <Compile Include="LogLib\Logger.cs" />
+    <Compile Include="LogLib\LoggerTester.cs" />
+    <Compile Include="LogLib\LogReceiverLogger.cs" />
+    <Compile Include="LogLib\LogReceiverLoggerFactory.cs" />
+    <Compile Include="LogLib\LogSeverity.cs" />
+    <Compile Include="LogLib\LogSocketReader.cs" />
+    <Compile Include="LogLib\LogSocketReaderReceiver.cs" />
+    <Compile Include="LogLib\MemoryLogger.cs" />
+    <Compile Include="LogLib\NullLogger.cs" />
+    <Compile Include="LogLib\RollingFileLogger.cs" />
+    <Compile Include="LogLib\SerialLogger.cs" />
+    <Compile Include="LogLib\SerialSocketLogger.cs" />
+    <Compile Include="LogLib\TextWriterLogger.cs" />
+    <Compile Include="LogLib\TraceLogger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\CDRLogger.cs" />
+    <Compile Include="Utils\Class.DB_Helper.cs" />
+    <Compile Include="Utils\ConsoleLogger.cs" />
+    <Compile Include="XMLEntities\Class.XMLObjectHelper.cs" />
+    <Compile Include="XMLEntities\XMLArtist.cs" />
+    <Compile Include="XMLEntities\XMLLabel.cs" />
+    <Compile Include="XMLEntities\XMLMaster.cs" />
+    <Compile Include="XMLEntities\XMLRelease.cs" />
+    <Compile Include="XmlSnibbitReader.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="DISCOGS.dez" />
+    <None Include="DiscogsXML2MySQL.DEBUG.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="DiscogsXML2MySQL.ini" />
+    <None Include="DiscogsXML2MySQL.RELEASE.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dbCreate.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dbIndexes.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dbSchema.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\dbStoredProcedures.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DISCOGS.emf" />
+    <Content Include="Resources\MySql.Data.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
