@@ -16,7 +16,6 @@ namespace DiscogsXML2MySQL
     class Import
     {
         private MySqlConnection conn = null;
-        private string xmlFolder = @"C:\Data files\SVN\VisualStudio2017\Solutions\Discogs\Data\";
         private string exportFolder = Directory.GetCurrentDirectory();
         private bool runCreateSchema = false;
 
@@ -70,7 +69,7 @@ namespace DiscogsXML2MySQL
 
             DateTime dtStart = DateTime.Now;
 
-            string discogsLocalLastDate = ArtistsXMLFile(xmlFolder);
+            string discogsLocalLastDate =Path.GetFileName(ArtistsXMLFile(Program.DataPath));
             if (string.IsNullOrEmpty(discogsLocalLastDate) || discogsLocalLastDate.Length < 16)
             {
                 // should never come here!
@@ -81,7 +80,7 @@ namespace DiscogsXML2MySQL
             discogsLocalLastDate = discogsLocalLastDate.Substring(8, 8);
 
             ConsoleLogger.WriteLine("Exporting ARTISTS.XML data to TAB files.");
-            if (ConvertArtistsXML2TAB(xmlFolder))
+            if (ConvertArtistsXML2TAB(Program.DataPath))
             {
                 if (conn != null)
                 {
@@ -96,7 +95,7 @@ namespace DiscogsXML2MySQL
             // -------------------------------------------------------------------------------------------------------
 
             ConsoleLogger.WriteLine("Exporting LABELS.XML data to TAB files.");
-            if (ConvertLabelsXML2TAB(xmlFolder))
+            if (ConvertLabelsXML2TAB(Program.DataPath))
             {
                 if (conn != null)
                 {
@@ -111,7 +110,7 @@ namespace DiscogsXML2MySQL
             // -------------------------------------------------------------------------------------------------------
 
             ConsoleLogger.WriteLine("Exporting RELEASES.XML data to TAB files.");
-            if (ConvertReleasesXML2TAB(xmlFolder))
+            if (ConvertReleasesXML2TAB(Program.DataPath))
             {
                 if (conn != null)
                 {
@@ -125,7 +124,7 @@ namespace DiscogsXML2MySQL
             // -------------------------------------------------------------------------------------------------------
 
             ConsoleLogger.WriteLine("Exporting MASTERS.XML data to TAB files.");
-            if (ConvertMastersXML2TAB(xmlFolder))
+            if (ConvertMastersXML2TAB(Program.DataPath))
             {
                 if (conn != null)
                 {

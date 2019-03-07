@@ -270,3 +270,7 @@ __pycache__/
 /Data/discogs_20190101_masters.xml
 /Data/discogs_20190101_labels.xml
 /Data/discogs_20190101_artists.xml
+/Data/discogs_20190301_artists.xml.gz
+/Data/discogs_20190301_labels.xml.gz
+/Data/discogs_20190301_masters.xml.gz
+/Data/discogs_20190301_releases.xml.gz
