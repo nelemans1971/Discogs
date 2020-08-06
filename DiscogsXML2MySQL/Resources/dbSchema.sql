@@ -212,11 +212,10 @@ CREATE TABLE `FORMAT` (
 # ---------------------------------------------------------------------- #
 
 CREATE TABLE `FORMAT_DESCRIPTION` (
-    `FORMAT_DESCRIPTION_ID` INTEGER NOT NULL AUTO_INCREMENT,
+    `FORMAT_DESCRIPTION_ID` INTEGER NOT NULL,
     `FORMAT_ID` INTEGER NOT NULL,
     `DESCRIPTION` VARCHAR(100) NOT NULL,
-    `DESCRIPTION_ORDER` INTEGER NOT NULL DEFAULT 1,
-    CONSTRAINT `PK_FORMAT_DESCRIPTION` PRIMARY KEY (`FORMAT_DESCRIPTION_ID`)
+    `DESCRIPTION_ORDER` INTEGER NOT NULL DEFAULT 1
 );
 
 # ---------------------------------------------------------------------- #
@@ -281,12 +280,11 @@ CREATE TABLE `TRACK_ARTIST` (
 # ---------------------------------------------------------------------- #
 
 CREATE TABLE `IDENTIFIER` (
-    `IDENTIFIER_ID` INTEGER NOT NULL AUTO_INCREMENT,
+    `IDENTIFIER_ID` INTEGER NOT NULL,
     `RELEASE_ID` INTEGER NOT NULL,
     `DESCRIPTION` VARCHAR(100) NOT NULL,
     `TYPE` VARCHAR(40) NOT NULL,
-    `VALUE` VARCHAR(100) NOT NULL,
-    CONSTRAINT `PK_IDENTIFIER` PRIMARY KEY (`IDENTIFIER_ID`)
+    `VALUE` VARCHAR(100) NOT NULL
 );
 
 # ---------------------------------------------------------------------- #
@@ -294,15 +292,14 @@ CREATE TABLE `IDENTIFIER` (
 # ---------------------------------------------------------------------- #
 
 CREATE TABLE `VIDEO` (
-    `VIDEO_ID` INTEGER NOT NULL AUTO_INCREMENT,
+    `VIDEO_ID` INTEGER NOT NULL,
     `RELEASE_ID` INTEGER NOT NULL,
     `MASTER_ID` INTEGER,
     `EMBED` BOOL NOT NULL DEFAULT 0,
     `DURATION_IN_SEC` INTEGER NOT NULL DEFAULT 0,
     `SRC` VARCHAR(255) NOT NULL,
     `TITLE` VARCHAR(255) NOT NULL,
-    `DESCRIPTION` VARCHAR(255) NOT NULL,
-    CONSTRAINT `PK_VIDEO` PRIMARY KEY (`VIDEO_ID`)
+    `DESCRIPTION` VARCHAR(255) NOT NULL
 );
 
 # ---------------------------------------------------------------------- #
@@ -310,14 +307,13 @@ CREATE TABLE `VIDEO` (
 # ---------------------------------------------------------------------- #
 
 CREATE TABLE `COMPANY` (
-    `COMPANY_ID` INTEGER NOT NULL AUTO_INCREMENT,
+    `COMPANY_ID` INTEGER NOT NULL,
     `RELEASE_ID` INTEGER NOT NULL,
     `NAME` VARCHAR(255) NOT NULL,
     `CATNO` VARCHAR(100) NOT NULL,
     `ENTITY_TYPE` INTEGER NOT NULL,
     `ENTITY_TYPE_NAME` VARCHAR(40) NOT NULL,
-    `RESOURCE_URL` VARCHAR(255) NOT NULL DEFAULT '',
-    CONSTRAINT `PK_COMPANY` PRIMARY KEY (`COMPANY_ID`)
+    `RESOURCE_URL` VARCHAR(255) NOT NULL DEFAULT ''
 );
 
 # ---------------------------------------------------------------------- #
